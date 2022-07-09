@@ -1,12 +1,11 @@
-function App() {
+import { UserForm } from './components/signup/UserForm';
 
-  const app4 = <h2>hola</h2>
-
+function App() { 
 	return (
-		<div className='App'>
-			<h1>hola app</h1>
-      {console.log(app4)}
-		</div>
+		<>
+			<h1>TV Servives</h1>
+			<UserForm />
+		</>
 	);
 }
 
