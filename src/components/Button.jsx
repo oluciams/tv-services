@@ -1,13 +1,20 @@
+import PropTypes from 'prop-types';
 
-export const Button = () => {
+export const Button = ({ text, fn, className }) => {
   return (
     
     <button
-      type="button"
-      className="btn btn-primary"
+      type="submit"
+      className={ className }
+      onClick={ fn } 
       >
-      Primary
+      { text }
     </button>
-  )
-  
+  )  
+}
+
+Button.propTypes = {
+  text: PropTypes.string,  
+  fn: PropTypes.func,
+  className: PropTypes.string,  
 }
