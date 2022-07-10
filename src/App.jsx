@@ -1,10 +1,12 @@
+import { Route, Routes } from 'react-router-dom';
 import { UserForm } from './components/signup/UserForm';
 
 function App() { 
 	return (
 		<>
-			<h1>App</h1>
-			<UserForm />
+			<Routes>
+				<Route path='/' element={<UserForm />} />		
+			</Routes>
 		</>
 	);
 }
