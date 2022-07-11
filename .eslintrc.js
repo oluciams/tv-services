@@ -5,8 +5,8 @@ module.exports = {
 	},
 	settings: {
 		react: {
-			version: 'detect'
-		}
+			version: 'detect',
+		},
 	},
 	extends: [
 		'plugin:react/recommended',
@@ -22,7 +22,5 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['react'],
-	rules: {
-	
-	},
+	rules: {},
 };
