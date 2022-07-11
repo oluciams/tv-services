@@ -13,36 +13,32 @@ export const UserDetails = () => {
 	});
 	const navigate = useNavigate();
 
-	const onFormSubmit = (e) => {
-		e.preventDefault();	
+	const onFormSubmit = e => {
+		e.preventDefault();
 		if (name && lastname) {
 			const formUserDetails = { name, lastname };
 			console.log(formUserDetails);
 		}
 		onResetForm();
-		navigate('/searchList'); 
-
+		navigate('/searchList');
 	};
 
-  // const handleStep1 = ( signup ) => {
-  //   const action ={ 
-  //     type: '[SIGNUP] Add step1',
-  //     payload: signup
-  //   }
+	// const handleStep1 = ( signup ) => {
+	//   const action ={
+	//     type: '[SIGNUP] Add step1',
+	//     payload: signup
+	//   }
 
-  //   dispatch( action );
+	//   dispatch( action );
 
-  // }
+	// }
 
 	return (
 		<>
 			<h4 className='my-4 py-3'>
 				Awesome! Let&#39;s get started with the basics
 			</h4>
-			<form 
-				className='my-5' 
-				onSubmit={onFormSubmit}
-			>
+			<form className='my-5' onSubmit={onFormSubmit}>
 				<div className='mb-3 col-3 mx-auto'>
 					<input
 						className='form-control mb-3'
@@ -60,12 +56,12 @@ export const UserDetails = () => {
 						value={lastname}
 						onChange={onInputChange}
 					/>
-				</div>		
+				</div>
 				<Button
-					type='submit' 
-					className='btn btn-primary btn-lg my-5 py-2 px-4' 
+					type='submit'
+					className='btn btn-primary btn-lg my-5 py-2 px-4'
 					text={'NEXT'}
-				/>		
+				/>
 			</form>
 		</>
 	);

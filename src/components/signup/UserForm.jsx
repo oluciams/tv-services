@@ -12,7 +12,6 @@ export const UserForm = () => {
 					text={`LET'S DO IT!`}
 				/>
 			</Link>
-      
 		</>
 	);
 };

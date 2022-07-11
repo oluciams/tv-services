@@ -9,15 +9,14 @@ export const Confirmation = () => {
 	});
 	const navigate = useNavigate();
 
-	const onFormSubmit = (e) => {
-		e.preventDefault();	
+	const onFormSubmit = e => {
+		e.preventDefault();
 		if (email && phoneNumber) {
 			const formUserConfirmation = { email, phoneNumber };
 			console.log(formUserConfirmation);
 		}
 		onResetForm();
-		navigate('/success'); 
-
+		navigate('/success');
 	};
 
 	return (
@@ -27,10 +26,7 @@ export const Confirmation = () => {
 				To get set up, just provide your email and phone number and we remind
 				you when the free trial ends.
 			</p>
-			<form 
-				className='my-5'
-				onSubmit={onFormSubmit}
-				>
+			<form className='my-5' onSubmit={onFormSubmit}>
 				<div className='mb-3 col-6 mx-auto'>
 					<input
 						className='form-control mb-3'
