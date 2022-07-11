@@ -8,7 +8,7 @@ import { Confirmation } from './components/signup/Confirmation';
 function App() { 
 	return (
 		<>
-		<section className='container-fluid col-6 text-center py-3'>
+		<section className='container-fluid col-8 text-center mx-auto my-4 py-3'>
 			<Routes>
 				<Route path='/' element={<UserForm />} />	
 				<Route path='userDetails' element={<UserDetails />} />		

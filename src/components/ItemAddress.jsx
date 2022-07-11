@@ -1,6 +1,6 @@
 import { Button } from "./Button"
 
-export const ListAddress = () => {
+export const ItemAddress = () => {
   return(
     <>
       <li className='col-10 list-group-item d-flex justify-content-between shadow p-3 mb-5 bg-body rounded'>
