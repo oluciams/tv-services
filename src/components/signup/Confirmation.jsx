@@ -1,5 +1,7 @@
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import { formUserConfirmation } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 
 export const Confirmation = () => {
@@ -7,13 +9,14 @@ export const Confirmation = () => {
 		email: '',
 		phoneNumber: '',
 	});
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (email && phoneNumber) {
-			const formUserConfirmation = { email, phoneNumber };
-			console.log(formUserConfirmation);
+			dispatch( formUserConfirmation( { email, phoneNumber } ));
+			console.log(email);
 		}
 		onResetForm();
 		navigate('/success');
