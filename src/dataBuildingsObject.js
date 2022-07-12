@@ -6,4 +6,11 @@ export const buildings = [
 		zipCode: 33,
 		state: 'Belen',
 	},
+	{
+		name: 'Buena vida',
+		city: 'Itagui',
+		address: 'Calle 40 no. 60-99',
+		zipCode: 303,
+		state: 'Santa Maria',
+	},
 ];
