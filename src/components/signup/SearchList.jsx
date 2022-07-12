@@ -1,15 +1,16 @@
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { Button } from '../Button';
 
 export const SearchList = () => {
-	const name = 'Alejandro';
 
 	const { address, apartment, onInputChange, onResetForm } = useForm({
 		address: '',
 		apartment: '',
 	});
 
+	const name = useSelector( (state) => state.signup.name )
 	const navigate = useNavigate();
 
 	const onFormSubmit = e => {

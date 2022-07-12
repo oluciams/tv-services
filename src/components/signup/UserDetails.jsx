@@ -1,37 +1,28 @@
-// import { useReducer } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-// import { initialState, signupReducer } from '../../reducers/signupReducer';
+import { formUserDetails } from '../../store/slices/signup/signupSlice';
+
 import { Button } from '../Button';
 
 export const UserDetails = () => {
-	// const [signup, dispatch] = useReducer(signupReducer, initialState);
 
 	const { name, lastname, onInputChange, onResetForm } = useForm({
 		name: '',
 		lastname: '',
 	});
+
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (name && lastname) {
-			const formUserDetails = { name, lastname };
-			console.log(formUserDetails);
+			dispatch( formUserDetails( { name, lastname } ))
 		}
 		onResetForm();
 		navigate('/searchList');
 	};
-
-	// const handleStep1 = ( signup ) => {
-	//   const action ={
-	//     type: '[SIGNUP] Add step1',
-	//     payload: signup
-	//   }
-
-	//   dispatch( action );
-
-	// }
 
 	return (
 		<>
