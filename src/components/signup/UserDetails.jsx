@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { formUserDetails, incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
@@ -11,20 +10,17 @@ export const UserDetails = () => {
 		lastname: '',
 	});
 
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
+	const dispatch = useDispatch();	
 	const page = useSelector( (state) => state.signup.page )
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (name && lastname) {
 			dispatch( formUserDetails( { name, lastname } ))		
+			dispatch( incrementPage ( { page: page + 1 } ))
 		}
 		onResetForm();
-		navigate('/searchList');
-	};
-
-	
+	};	
 
 	return (
 		<>
@@ -53,8 +49,7 @@ export const UserDetails = () => {
 				<Button
 					type='submit'
 					className='btn btn-primary btn-lg my-5 py-2 px-4'
-					text={'NEXT'}
-					fn={()=> 	dispatch( incrementPage ( { page: page + 1 } )) }				  
+					text={'NEXT'}							  
 				/>
 			</form>
 		</>
