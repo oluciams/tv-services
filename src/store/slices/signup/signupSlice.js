@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const signupSlice = createSlice({
     name: 'signup',
-    initialState: {    
+    initialState: {  
+      page: 0,  
       name: '',
       lastname: '',
       address: '',
@@ -24,8 +25,11 @@ export const signupSlice = createSlice({
         formUserConfirmation: ( state, action ) => {
             state.email = action.payload.email;
             state.phoneNumber = action.payload.phoneNumber;
-        },        
+        }, 
+        incrementPage: (state, action) => {
+            state.page = action.payload.page
+        }      
     }
 });
 
-export const { formUserDetails, formUserAddress, formUserConfirmation } = signupSlice.actions;
+export const { formUserDetails, formUserAddress, formUserConfirmation, incrementPage } = signupSlice.actions;
