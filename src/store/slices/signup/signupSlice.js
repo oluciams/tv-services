@@ -18,7 +18,7 @@ export const signupSlice = createSlice({
         },
 
         formUserAddress: ( state, action ) => {
-            state.address = action.payload.addres;
+            state.address = action.payload.address;
             state.apartment = action.payload.apartment;
         },
 
