@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { formUserAddress } from '../../store/slices/signup/signupSlice';
+import { addDataToForm } from '../../store/slices/signup/signupSlice';
+// import { formUserAddress } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 
 export const SearchList = () => {
@@ -17,7 +18,8 @@ export const SearchList = () => {
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (address && apartment) {
-			dispatch( formUserAddress( { address, apartment } ))
+			// dispatch( formUserAddress( { address, apartment } ))
+			dispatch( addDataToForm( { address, apartment } ))
 		}	
 		onResetForm();
 		navigate('/selectPlan');

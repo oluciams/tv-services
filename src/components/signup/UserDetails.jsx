@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { formUserDetails } from '../../store/slices/signup/signupSlice';
+import { addDataToForm } from '../../store/slices/signup/signupSlice';
+// import { formUserDetails } from '../../store/slices/signup/signupSlice';
 
 import { Button } from '../Button';
 
@@ -18,7 +19,8 @@ export const UserDetails = () => {
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (name && lastname) {
-			dispatch( formUserDetails( { name, lastname } ))
+			// dispatch( formUserDetails( { name, lastname } ))
+			dispatch( addDataToForm( { name, lastname } ))
 		}
 		onResetForm();
 		navigate('/searchList');
