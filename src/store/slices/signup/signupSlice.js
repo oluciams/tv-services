@@ -13,8 +13,7 @@ export const signupSlice = createSlice({
 
     },
     reducers: {
-        formUserDetails: ( state, action ) => {
-            console.log(action)
+        formUserDetails: ( state, action ) => {    
             state.name = action.payload.name;
             state.lastname = action.payload.lastname;            
         },
