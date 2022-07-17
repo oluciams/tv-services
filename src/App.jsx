@@ -1,10 +1,3 @@
-// import { Route, Routes } from 'react-router-dom';
-// import { SelectPlan } from './components/signup/SelectPlan';
-// import { SearchList } from './components/signup/SearchList';
-// import { UserDetails } from './components/signup/UserDetails';
-// import { UserForm } from './components/signup/UserForm';
-// import { Confirmation } from './components/signup/Confirmation';
-// import { Success } from './components/signup/Success';
 import { useSelector } from 'react-redux';
 import { UserForm } from './components/signup/UserForm';
 import { UserDetails } from './components/signup/UserDetails';
