@@ -1,26 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-import { formUserAddress, incrementPage } from '../../store/slices/signup/signupSlice';
+import {
+	formUserAddress,
+	incrementPage,
+} from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 
 export const SearchList = () => {
-
 	const { address, apartment, onInputChange, onResetForm } = useForm({
 		address: '',
 		apartment: '',
 	});
-	
+
 	const dispatch = useDispatch();
-	const name = useSelector( (state) => state.signup.name )	
-	const page = useSelector( (state) => state.signup.page )
+	const name = useSelector(state => state.signup.name);
+	const page = useSelector(state => state.signup.page);
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (address && apartment) {
-			dispatch( formUserAddress( { address, apartment } ))
-			dispatch( incrementPage ( { page: page + 1 } ))		
-		}	
-		onResetForm();	
+			dispatch(formUserAddress({ address, apartment }));
+			dispatch(incrementPage({ page: page + 1 }));
+		}
+		onResetForm();
 	};
 
 	return (

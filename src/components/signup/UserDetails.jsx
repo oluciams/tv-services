@@ -1,26 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-import { formUserDetails, incrementPage } from '../../store/slices/signup/signupSlice';
+import {
+	formUserDetails,
+	incrementPage,
+} from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 
 export const UserDetails = () => {
-
 	const { name, lastname, onInputChange, onResetForm } = useForm({
 		name: '',
 		lastname: '',
 	});
 
-	const dispatch = useDispatch();	
-	const page = useSelector( (state) => state.signup.page )
+	const dispatch = useDispatch();
+	const page = useSelector(state => state.signup.page);
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (name && lastname) {
-			dispatch( formUserDetails( { name, lastname } ))		
-			dispatch( incrementPage ( { page: page + 1 } ))
+			dispatch(formUserDetails({ name, lastname }));
+			dispatch(incrementPage({ page: page + 1 }));
 		}
 		onResetForm();
-	};	
+	};
 
 	return (
 		<>
@@ -49,7 +51,7 @@ export const UserDetails = () => {
 				<Button
 					type='submit'
 					className='btn btn-primary btn-lg my-5 py-2 px-4'
-					text={'NEXT'}							  
+					text={'NEXT'}
 				/>
 			</form>
 		</>

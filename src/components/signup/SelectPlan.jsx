@@ -4,9 +4,8 @@ import { Button } from '../Button';
 import { Card } from '../Card';
 
 export const SelectPlan = () => {
-
-	const dispatch = useDispatch();	
-	const page = useSelector( (state) => state.signup.page )
+	const dispatch = useDispatch();
+	const page = useSelector(state => state.signup.page);
 
 	return (
 		<>
@@ -15,7 +14,7 @@ export const SelectPlan = () => {
 				type='submit'
 				className='btn btn-primary mx-2 my-5'
 				text={'I AM READY!'}
-				fn={()=> 	dispatch( incrementPage ( { page: page + 1 } )) }	
+				fn={() => dispatch(incrementPage({ page: page + 1 }))}
 			/>
 		</>
 	);

@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-import { formUserConfirmation, incrementPage } from '../../store/slices/signup/signupSlice';
+import {
+	formUserConfirmation,
+	incrementPage,
+} from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 
 export const Confirmation = () => {
@@ -9,13 +12,13 @@ export const Confirmation = () => {
 		phoneNumber: '',
 	});
 	const dispatch = useDispatch();
-	const page = useSelector( (state) => state.signup.page )
+	const page = useSelector(state => state.signup.page);
 
 	const onFormSubmit = e => {
 		e.preventDefault();
 		if (email && phoneNumber) {
-			dispatch( formUserConfirmation( { email, phoneNumber } ));
-			dispatch( incrementPage ( { page: page + 1 } ))
+			dispatch(formUserConfirmation({ email, phoneNumber }));
+			dispatch(incrementPage({ page: page + 1 }));
 		}
 		onResetForm();
 	};

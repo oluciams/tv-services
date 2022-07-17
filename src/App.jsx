@@ -7,34 +7,32 @@ import { Confirmation } from './components/signup/Confirmation';
 import { Success } from './components/signup/Success';
 
 function App() {
-
-	const page = useSelector( (state) => state.signup.page )
-	const userState = useSelector( (state) => state.signup)
-
+	const page = useSelector(state => state.signup.page);
+	const userState = useSelector(state => state.signup);
 
 	const pageDisplay = () => {
-		switch( page ) {
+		switch (page) {
 			case 0:
-				return <UserForm />
-			case 1: 
-				return <UserDetails  />
+				return <UserForm />;
+			case 1:
+				return <UserDetails />;
 			case 2:
-				return <SearchList  />			
+				return <SearchList />;
 			case 3:
-				return <SelectPlan  />
+				return <SelectPlan />;
 			case 4:
-				return <Confirmation  />
+				return <Confirmation />;
 			case 5:
-				console.log(userState)
-				return <Success  /> 
+				console.log(userState);
+				return <Success />;
 
 			default:
-		} 
-	}
+		}
+	};
 	return (
 		<>
 			<section className='container-fluid col-8 text-center mx-auto my-4 py-3'>
-				<div>{pageDisplay()}</div>		
+				<div>{pageDisplay()}</div>
 			</section>
 		</>
 	);

@@ -1,10 +1,5 @@
-
-
 export const getUserDetails = () => {
-  return (dispatch) => {
-
-    
-
-    dispatch(  )
-  }
-}
+	return dispatch => {
+		dispatch();
+	};
+};
