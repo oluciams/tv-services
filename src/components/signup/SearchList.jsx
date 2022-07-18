@@ -12,15 +12,15 @@ export const SearchList = () => {
 		address: '',
 		apartment: '',
 	});
-	const [searchCharacter, setSearchCharacter] = useState('');
+	const [searchBuilding, setSearchBuilding] = useState('');
 
 	const dispatch = useDispatch();
 	const name = useSelector(state => state.signup.name);
 	const page = useSelector(state => state.signup.page);
 
-	const handleSearchCharacter = (e)=>{
+	const handleSearchBuilding = (e)=>{
     const search1 = e.target.value  
-    setSearchCharacter(search1)
+    setSearchBuilding(search1)
   }
 
 	const onFormSubmit = e => {
@@ -46,8 +46,8 @@ export const SearchList = () => {
 						type='text'
 						placeholder='prueba'
 						name='address'
-						value={searchCharacter}
-						onChange={handleSearchCharacter}
+						value={searchBuilding}
+						onChange={handleSearchBuilding}
 					/>				
 					<input
 						className='form-control'
@@ -56,8 +56,7 @@ export const SearchList = () => {
 						name='address'
 						value={address}
 						onChange={onInputChange}
-					/>
-					{/* <small>I can&#39;t find my address</small> */}
+					/>				
 				</div>
 				<div className='col-2'>
 					<input
@@ -71,24 +70,27 @@ export const SearchList = () => {
 				</div>
 				<section>
 					{
-						searchCharacter ? 
+						searchBuilding ? 
 						buildings
-							.filter((item)=>{
-								return Object.keys(item).some((key)=>item[key].toString().toLowerCase()
-								.includes(searchCharacter.toLowerCase()));
-							})		
+							.filter(building => 
+								building.name.match(new RegExp(searchBuilding, "i"))	||
+								building.address.match(new RegExp(searchBuilding, "i"))	||
+								building.city.match(new RegExp(searchBuilding, "i"))	||
+								building.state.match(new RegExp(searchBuilding, "i"))	||
+								building.postal.match(new RegExp(searchBuilding, "i"))
+							)
 
 							.map(({_id, name, address})=>
 								<ItemAddress
 									key={_id}
 									nameBuilding={name}
 									addressBuilding={address}
+									setSearchBuilding={setSearchBuilding}
 								/>
 							)
 						:
 						<small>I can&#39;t find my address</small>
-					}
-					
+					}				
 				</section>
 				<div>
 					<Button
