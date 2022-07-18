@@ -1,20 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-import {
-	formUserAddress,
-	incrementPage,
-} from '../../store/slices/signup/signupSlice';
+import { formUserAddress, incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
+import { ItemAddress } from '../ItemAddress';
+import { buildings } from '../../dataBuildings';
+import { useState } from 'react';
+
 
 export const SearchList = () => {
 	const { address, apartment, onInputChange, onResetForm } = useForm({
 		address: '',
 		apartment: '',
 	});
+	const [searchCharacter, setSearchCharacter] = useState('');
 
 	const dispatch = useDispatch();
 	const name = useSelector(state => state.signup.name);
 	const page = useSelector(state => state.signup.page);
+
+	const handleSearchCharacter = (e)=>{
+    const search1 = e.target.value  
+    setSearchCharacter(search1)
+  }
 
 	const onFormSubmit = e => {
 		e.preventDefault();
@@ -34,6 +41,14 @@ export const SearchList = () => {
 				onSubmit={onFormSubmit}
 			>
 				<div className='col-4'>
+				<input
+						className='form-control'
+						type='text'
+						placeholder='prueba'
+						name='address'
+						value={searchCharacter}
+						onChange={handleSearchCharacter}
+					/>				
 					<input
 						className='form-control'
 						type='search'
@@ -42,7 +57,7 @@ export const SearchList = () => {
 						value={address}
 						onChange={onInputChange}
 					/>
-					<small>I can&#39;t find my address</small>
+					{/* <small>I can&#39;t find my address</small> */}
 				</div>
 				<div className='col-2'>
 					<input
@@ -54,6 +69,27 @@ export const SearchList = () => {
 						onChange={onInputChange}
 					/>
 				</div>
+				<section>
+					{
+						searchCharacter ? 
+						buildings
+							.filter((item)=>{
+								return Object.keys(item).some((key)=>item[key].toString().toLowerCase()
+								.includes(searchCharacter.toLowerCase()));
+							})		
+
+							.map(({_id, name, address})=>
+								<ItemAddress
+									key={_id}
+									nameBuilding={name}
+									addressBuilding={address}
+								/>
+							)
+						:
+						<small>I can&#39;t find my address</small>
+					}
+					
+				</section>
 				<div>
 					<Button
 						type='submit'
