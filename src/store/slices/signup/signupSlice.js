@@ -8,6 +8,7 @@ export const signupSlice = createSlice({
 		lastname: '',
 		buildingId:'',
 		apartment: '',
+		plan:'',
 		email: '',
 		phoneNumber: '',
 	},
@@ -18,6 +19,12 @@ export const signupSlice = createSlice({
 		},
 		formUserAparment: (state, action) => {	
 			state.apartment = action.payload.apartment;
+		},
+		electBuilding: (state, action) => {
+			state.buildingId = action.payload.buildingId;
+		},
+		formUserPlan: (state, action) => {
+			state.plan = action.payload.plan;	
 		},
 		formUserConfirmation: (state, action) => {
 			state.email = action.payload.email;
@@ -35,6 +42,7 @@ export const signupSlice = createSlice({
 export const {
 	formUserDetails,
 	formUserAparment,
+	formUserPlan,
 	formUserConfirmation,
 	incrementPage,
 	selectBuilding

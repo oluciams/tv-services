@@ -8,12 +8,14 @@ export const buildings =
 		state: 'NY',
 		postal: '10038',
 		plans: [
-			{
+			{	
+				idPlan: 1,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
 			},
 			{
+				idPlan: 2,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -29,11 +31,13 @@ export const buildings =
 		postal: '07302',
 		plans: [
 			{
+				idPlan: 3,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
 			},
 			{
+				idPlan: 4,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -49,6 +53,7 @@ export const buildings =
 		postal: '10010',
 		plans: [
 			{
+				idPlan: 5,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -64,6 +69,7 @@ export const buildings =
 		postal: '10003',
 		plans: [
 			{
+				idPlan: 6,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -79,11 +85,13 @@ export const buildings =
 		postal: '10013',
 		plans: [
 			{
+				idPlan: 7,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
 			},
 			{
+				idPlan: 8,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -99,6 +107,7 @@ export const buildings =
 		postal: '10016',
 		plans: [
 			{
+				idPlan: 9,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -114,6 +123,7 @@ export const buildings =
 		postal: '10002',
 		plans: [
 			{
+				idPlan: 10,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -129,11 +139,13 @@ export const buildings =
 		postal: '10038',
 		plans: [
 			{
+				idPlan: 11,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 12,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -149,11 +161,13 @@ export const buildings =
 		postal: '10003',
 		plans: [
 			{
+				idPlan: 13,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 14,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -169,6 +183,7 @@ export const buildings =
 		postal: '10013',
 		plans: [
 			{
+				idPlan: 15,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -184,11 +199,13 @@ export const buildings =
 		postal: '10011',
 		plans: [
 			{
+				idPlan: 16,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 17,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -204,11 +221,13 @@ export const buildings =
 		postal: '10038',
 		plans: [
 			{
+				idPlan: 18,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 19,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -224,11 +243,13 @@ export const buildings =
 		postal: '10002',
 		plans: [
 			{
+				idPlan: 20,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 21,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -244,6 +265,7 @@ export const buildings =
 		postal: '10016',
 		plans: [
 			{
+				idPlan: 22,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -259,6 +281,7 @@ export const buildings =
 		postal: '10016',
 		plans: [
 			{
+				idPlan: 23,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -274,11 +297,13 @@ export const buildings =
 		postal: '10012',
 		plans: [
 			{
+				idPlan: 24,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
 			},
 			{
+				idPlan: 25,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',
@@ -294,6 +319,7 @@ export const buildings =
 		postal: '10013',
 		plans: [
 			{
+				idPlan: 26,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',

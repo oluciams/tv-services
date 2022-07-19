@@ -3,13 +3,16 @@ import { incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 import { Card } from '../Card';
 
-export const SelectPlan = () => {
+export const SelectPlan = () => {	
+
 	const dispatch = useDispatch();
 	const page = useSelector(state => state.signup.page);
+	const id = useSelector(state => state.signup.buildingId);
 
+		
 	return (
 		<>
-			<Card />
+			<Card id={id} />		
 			<Button
 				type='submit'
 				className='btn btn-primary mx-2 my-5'
