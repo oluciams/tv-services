@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-import { formUserAddress, incrementPage } from '../../store/slices/signup/signupSlice';
+import { formUserAparment, incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 import { ItemAddress } from '../ItemAddress';
 import { buildings } from '../../dataBuildings';
@@ -8,8 +8,7 @@ import { useState } from 'react';
 
 
 export const SearchList = () => {
-	const { address, apartment, onInputChange, onResetForm } = useForm({
-		address: '',
+	const { apartment, onInputChange, onResetForm } = useForm({	
 		apartment: '',
 	});
 	const [searchBuilding, setSearchBuilding] = useState('');
@@ -20,13 +19,13 @@ export const SearchList = () => {
 
 	const handleSearchBuilding = (e)=>{
     const search1 = e.target.value  
-    setSearchBuilding(search1)
+    setSearchBuilding(search1)		
   }
 
 	const onFormSubmit = e => {
 		e.preventDefault();
-		if (address && apartment) {
-			dispatch(formUserAddress({ address, apartment }));
+		if (apartment) {
+			dispatch(formUserAparment({ apartment }));
 			dispatch(incrementPage({ page: page + 1 }));
 		}
 		onResetForm();
@@ -44,18 +43,10 @@ export const SearchList = () => {
 				<input
 						className='form-control'
 						type='text'
-						placeholder='prueba'
-						name='address'
+						placeholder='Street Address, City'
+						name='buildingId'
 						value={searchBuilding}
 						onChange={handleSearchBuilding}
-					/>				
-					<input
-						className='form-control'
-						type='search'
-						placeholder='Street Address, City'
-						name='address'
-						value={address}
-						onChange={onInputChange}
 					/>				
 				</div>
 				<div className='col-2'>
@@ -83,8 +74,9 @@ export const SearchList = () => {
 							.map(({_id, name, address})=>
 								<ItemAddress
 									key={_id}
+									buildingId={_id}
 									nameBuilding={name}
-									addressBuilding={address}
+									addressBuilding={address}		
 									setSearchBuilding={setSearchBuilding}
 								/>
 							)

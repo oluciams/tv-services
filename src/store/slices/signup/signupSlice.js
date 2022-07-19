@@ -6,7 +6,7 @@ export const signupSlice = createSlice({
 		page: 0,
 		name: '',
 		lastname: '',
-		address: '',
+		buildingId:'',
 		apartment: '',
 		email: '',
 		phoneNumber: '',
@@ -16,8 +16,7 @@ export const signupSlice = createSlice({
 			state.name = action.payload.name;
 			state.lastname = action.payload.lastname;
 		},
-		formUserAddress: (state, action) => {
-			state.address = action.payload.address;
+		formUserAparment: (state, action) => {	
 			state.apartment = action.payload.apartment;
 		},
 		formUserConfirmation: (state, action) => {
@@ -27,12 +26,16 @@ export const signupSlice = createSlice({
 		incrementPage: (state, action) => {
 			state.page = action.payload.page;
 		},
+		selectBuilding: (state, action) => {
+			state.buildingId = action.payload.buildingId;
+		}
 	},
 });
 
 export const {
 	formUserDetails,
-	formUserAddress,
+	formUserAparment,
 	formUserConfirmation,
 	incrementPage,
+	selectBuilding
 } = signupSlice.actions;

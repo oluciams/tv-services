@@ -12,7 +12,7 @@ export const Card = () => {
 								<input
 									className='form-check-input justify-content-center'
 									type='radio'
-									name='plan'
+									name='basic'
 									value={true}
 								/>
 							</form>
@@ -25,7 +25,14 @@ export const Card = () => {
 							<h2 className='card-title'>Premium</h2>
 							<small>Service</small>
 							<h1 className='card-text text-primary'>50</h1>
-							<input className='form-check-input' type='radio' />
+							<form>
+								<input
+									className='form-check-input justify-content-center'
+									type='radio'
+									name='premium'
+									value={true}
+								/>
+							</form>						
 						</div>
 					</div>
 				</div>
