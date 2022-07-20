@@ -28,9 +28,9 @@ export const ItemAddress = ({
 	
 	return (
 		<>
-			<li className='col-6 d-flex justify-content-between shadow p-2 m-auto mb-2'>
+			<li className='col-md-6 d-flex justify-content-between shadow border p-1 m-auto my-2'>
 				<div>
-					<p className='text-primary'>{ nameBuilding }</p>
+					<p className='text-primary my-1'>{ nameBuilding }</p>
 					<small>{ addressBuilding }</small>
 				</div>
 				{

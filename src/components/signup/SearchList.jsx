@@ -39,7 +39,7 @@ export const SearchList = () => {
 				className='row mt-5 pt-4 justify-content-center'
 				onSubmit={onFormSubmit}
 			>
-				<div className='col-4'>
+				<div className='col-md-4'>
 				<input
 						className='form-control'
 						type='text'
@@ -49,7 +49,7 @@ export const SearchList = () => {
 						onChange={handleSearchBuilding}
 					/>				
 				</div>
-				<div className='col-2'>
+				<div className='col-md-2'>
 					<input
 						className='form-control'
 						type='search'

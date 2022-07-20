@@ -30,7 +30,7 @@ export const UserDetails = () => {
 				Awesome! Let&#39;s get started with the basics
 			</h4>
 			<form className='my-5' onSubmit={onFormSubmit}>
-				<div className='mb-3 col-3 mx-auto'>
+				<div className='mb-3 col-md-4 mx-auto'>
 					<input
 						className='form-control mb-3'
 						type='text'

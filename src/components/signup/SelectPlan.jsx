@@ -3,6 +3,8 @@ import { formUserPlan, incrementPage } from '../../store/slices/signup/signupSli
 import { Button } from '../Button';
 import { buildings } from '../../dataBuildings';
 import { useForm } from '../../hooks/useForm';
+import { useEffect } from 'react';
+import { Card } from '../Card';
 
 
 export const SelectPlan = () => {	
@@ -16,42 +18,31 @@ export const SelectPlan = () => {
 	const plansId = buildings.filter(building => building._id === id)[0]
   const plansIdBuilding = plansId.plans
 
-	dispatch(formUserPlan({ plan }));
+	useEffect(() => {
+		if(plan){	
+			dispatch(formUserPlan({ plan }));
+		}
+		
+	}, [plan]);	
 		
 	return (
 		<>
-			<div className='row row-cols-1 row-cols-md-2 g-4 mt-4'> 
-        {
-          plansIdBuilding.map(({idPlan, label, price }) =>
-            <div key={idPlan}className='col'>                    
-              <div className='card border-primary'>
-                <div className='card-body'>
-                  <h2 className='card-title'>{label}</h2>
-                  <small>Service</small>    
-                  <h1 className='text-primary'> $ {price}</h1>                
-                </div>
-								<div>			
-									<input
-										className='mb-3' 
-										type='radio'
-										id={label}
-										name='plan'
-										value={label}
-										checked={plan === {label}}
-										onChange={onInputChange}
-									/>				
-								</div>
-              </div>
-            </div>                     
-          )
-        }   
-      </div>			
-			<Button
-				type='submit'
+			{
+				plansIdBuilding.map(({idPlan, label, price})=>
+					<Card 
+						key={idPlan}
+						label={label}
+						price={price}
+						plan={plan}
+						onInputChange={onInputChange}
+					/>
+				)
+			}		
+			<Button			
 				className='btn btn-primary mx-2 my-5'
 				text={'I AM READY!'}
-				fn={() => dispatch(incrementPage({ page: page + 1 }))}
-			/>
+				fn={() => dispatch(incrementPage({ page: page + 1 }))}		
+			/>		
 		</>
 	);
 };

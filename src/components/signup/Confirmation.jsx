@@ -31,7 +31,7 @@ export const Confirmation = () => {
 				you when the free trial ends.
 			</p>
 			<form className='my-5' onSubmit={onFormSubmit}>
-				<div className='mb-3 col-6 mx-auto'>
+				<div className='mb-3 col-md-6 mx-auto'>
 					<input
 						className='form-control mb-3'
 						type='email'
