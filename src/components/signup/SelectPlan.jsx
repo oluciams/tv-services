@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { formUserPlan, incrementPage } from '../../store/slices/signup/signupSlice';
+// import { formUserPlan, incrementPage } from '../../store/slices/signup/signupSlice';
+import {  incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 import { buildings } from '../../dataBuildings';
 import { useForm } from '../../hooks/useForm';
 import { useEffect } from 'react';
 import { Card } from '../Card';
+import { setNumberPlan } from '../../store/thunks/thunkPlan';
 
 
 export const SelectPlan = () => {	
@@ -19,8 +21,8 @@ export const SelectPlan = () => {
   const plansIdBuilding = plansId.plans
 
 	useEffect(() => {
-		if(plan){	
-			dispatch(formUserPlan({ plan }));
+		if(plan){
+			dispatch(setNumberPlan({plan}));
 		}
 		
 	}, [plan]);	
@@ -28,9 +30,10 @@ export const SelectPlan = () => {
 	return (
 		<>
 			{
-				plansIdBuilding.map(({idPlan, label, price})=>
+				plansIdBuilding.map(({id, label, price})=>
 					<Card 
-						key={idPlan}
+						key={id}
+						id={id}						
 						label={label}
 						price={price}
 						plan={plan}

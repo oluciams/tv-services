@@ -8,7 +8,7 @@ export const signupSlice = createSlice({
 		lastname: '',
 		buildingId:'',
 		apartment: '',
-		plan:'',
+		planId: '',
 		email: '',
 		phoneNumber: '',
 	},
@@ -24,7 +24,7 @@ export const signupSlice = createSlice({
 			state.buildingId = action.payload.buildingId;
 		},
 		formUserPlan: (state, action) => {
-			state.plan = action.payload.plan;	
+			state.planId = action.payload.planId;	
 		},
 		formUserConfirmation: (state, action) => {
 			state.email = action.payload.email;

@@ -311,7 +311,7 @@ export const buildings =
 		],
 	},
 	{
-		_id: '624ce530bf9bc46da7ab393e',
+		_id: 1,
 		name: '50 Franklin',
 		address: '50 Franklin Street',
 		city: 'New York',
@@ -319,7 +319,7 @@ export const buildings =
 		postal: '10013',
 		plans: [
 			{
-				idPlan: 26,
+				id: 1,
 				monthsFree: 0,
 				label: 'Basic',
 				price: '30',

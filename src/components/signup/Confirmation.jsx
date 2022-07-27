@@ -1,3 +1,4 @@
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { 	formUserConfirmation, incrementPage } from '../../store/slices/signup/signupSlice';
@@ -12,48 +13,31 @@ export const Confirmation = () => {
 	});
 	const dispatch = useDispatch();
 	const page = useSelector(state => state.signup.page);
-	const RegisterForm = useSelector(state => state.signup);
-
-	const onFormSubmit = async e => {
+	const registerForm = useSelector(state => state.signup);
+	
+	const onFormSubmit = e => {
 		e.preventDefault();
 		if (email && phoneNumber) {
-			dispatch(formUserConfirmation({ email, phoneNumber }));
+			dispatch(formUserConfirmation({ email, phoneNumber }));	
+			createUser()
+			
 		}
+		onResetForm();
+	};
+	
+	const createUser = async () => {
 		try {
-			const { data } = await axios.post('http://localhost:3000/users', RegisterForm)
-			console.log(data)				
-			dispatch(incrementPage({ page: page + 1 }));
-			onResetForm();
+		  const dataUser = {...registerForm, email, phoneNumber }	
+			console.log(dataUser)	
+			console.log(dataUser.planId)	
+			const response = await axios.post('http://localhost:3000/users', dataUser )
+			console.log("desde response ", response)
+			dispatch(incrementPage({ page: page + 1 }));	
 			
 		} catch (error) {
 			console.log(error)
-			
 		}
-	};
-
-	// const createUser = async () => {
-	// 	try {
-	// 		const RegisterForm = useSelector(state => state.signup);
-	// 		console.log(RegisterForm)	
-	// 		const { data } = await axios.post('http://localhost:3000/users', RegisterForm)
-	// 		console.log(data)
-	// 		// dispatch(incrementPage({ page: page + 1 }));
-	// 		// onResetForm();
-			
-	// 	} catch (error) {
-	// 		console.log(error)
-	// 	}
-	// }
-	
-	
-	// const onFormSubmit = e => {
-	// 	e.preventDefault();
-	// 	if (email && phoneNumber) {
-	// 		dispatch(formUserConfirmation({ email, phoneNumber }));
-	// 		dispatch(incrementPage({ page: page + 1 }));
-	// 	}
-	// 	onResetForm();
-	// };
+	}
 
 	return (
 		<>

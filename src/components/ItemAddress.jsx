@@ -52,7 +52,7 @@ export const ItemAddress = ({
 };
 
 ItemAddress.propTypes = {
-	buildingId: PropTypes.string,
+	buildingId: PropTypes.number,
 	nameBuilding: PropTypes.string,	
 	addressBuilding: PropTypes.string,
 	setSearchBuilding: PropTypes.func,

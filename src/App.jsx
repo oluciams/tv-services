@@ -8,22 +8,20 @@ import { Success } from './components/signup/Success';
 
 function App() {
 	const page = useSelector(state => state.signup.page);
-	const userState = useSelector(state => state.signup);
 
 	const pageDisplay = () => {
 		switch (page) {
 			case 0:
-				return <UserForm />;
+				return <UserForm />;			
 			case 1:
 				return <UserDetails />;
 			case 2:
 				return <SearchList />;
 			case 3:
-				return <SelectPlan />;
+				return <SelectPlan />;				
 			case 4:
 				return <Confirmation />;
-			case 5:
-				console.log(userState);
+			case 5:		
 				return <Success />;
 
 			default:
