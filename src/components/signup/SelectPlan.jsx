@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { formUserPlan, incrementPage } from '../../store/slices/signup/signupSlice';
-import {  incrementPage } from '../../store/slices/signup/signupSlice';
+import { incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 import { buildings } from '../../dataBuildings';
 import { useForm } from '../../hooks/useForm';
 import { useEffect } from 'react';
 import { Card } from '../Card';
-import { setNumberPlan } from '../../store/thunks/thunkPlan';
+import { setNumberPlan } from '../../store/thunks/thunks';
 
 
 export const SelectPlan = () => {	

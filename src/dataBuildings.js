@@ -191,7 +191,7 @@ export const buildings =
 		],
 	},
 	{
-		_id: '624ce52fbf9bc46da7ab3909',
+		_id: 11,
 		name: '133 W 22nd',
 		address: '133 West 22nd Street',
 		city: 'New York',
@@ -199,7 +199,7 @@ export const buildings =
 		postal: '10011',
 		plans: [
 			{
-				idPlan: 16,
+				idPlan: 2,
 				monthsFree: 1,
 				label: 'Premium',
 				price: '50',
@@ -311,7 +311,7 @@ export const buildings =
 		],
 	},
 	{
-		_id: 1,
+		_id: 18,
 		name: '50 Franklin',
 		address: '50 Franklin Street',
 		city: 'New York',
