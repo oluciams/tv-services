@@ -20,7 +20,7 @@ export const signupSlice = createSlice({
 		formUserAparment: (state, action) => {	
 			state.apartment = action.payload.apartment;
 		},
-		electBuilding: (state, action) => {
+		selectBuilding: (state, action) => {
 			state.buildingId = action.payload.buildingId;
 		},
 		formUserPlan: (state, action) => {
@@ -32,9 +32,6 @@ export const signupSlice = createSlice({
 		},
 		incrementPage: (state, action) => {
 			state.page = action.payload.page;
-		},
-		selectBuilding: (state, action) => {
-			state.buildingId = action.payload.buildingId;
 		}
 	},
 });

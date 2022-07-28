@@ -28,11 +28,11 @@ export const Confirmation = () => {
 	const createUser = async () => {
 		try {
 		  const dataUser = {...registerForm, email, phoneNumber }	
-			console.log(dataUser)	
-			console.log(dataUser.planId)	
-			const response = await axios.post('http://localhost:3000/users', dataUser )
-			console.log("desde response ", response)
-			dispatch(incrementPage({ page: page + 1 }));	
+			const newUser = await axios.post('http://localhost:3000/users', dataUser )
+				console.log(newUser)
+				if (newUser){			
+					dispatch(incrementPage({ page: page + 1 }));	
+			}
 			
 		} catch (error) {
 			console.log(error)

@@ -3,8 +3,8 @@ import { useForm } from '../../hooks/useForm';
 import { formUserAparment, incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
 import { ItemAddress } from '../ItemAddress';
-import { buildings } from '../../dataBuildings';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 export const SearchList = () => {
@@ -12,11 +12,12 @@ export const SearchList = () => {
 		apartment: '',
 	});
 	const [searchBuilding, setSearchBuilding] = useState('');
+	const [buildings, setBuildings] = useState();
 
 	const dispatch = useDispatch();
 	const name = useSelector(state => state.signup.name);
 	const page = useSelector(state => state.signup.page);
-
+	
 	const handleSearchBuilding = (e)=>{
     const search1 = e.target.value  
     setSearchBuilding(search1)		
@@ -30,6 +31,15 @@ export const SearchList = () => {
 		}
 		onResetForm();
 	};
+
+	const getBuildings = async () => {	
+		const { data }  = await axios.get('http://localhost:3000/buildings');
+		setBuildings(data);		
+	}
+
+	useEffect(() => {
+		getBuildings()
+	}, []);
 
 	return (
 		<>
@@ -59,7 +69,9 @@ export const SearchList = () => {
 						onChange={onInputChange}
 					/>
 				</div>
-				<section>
+				<section>				
+				
+
 					{
 						searchBuilding ? 
 						buildings
@@ -67,14 +79,15 @@ export const SearchList = () => {
 								building.name.match(new RegExp(searchBuilding, "i"))	||
 								building.address.match(new RegExp(searchBuilding, "i"))	||
 								building.city.match(new RegExp(searchBuilding, "i"))	||
-								building.state.match(new RegExp(searchBuilding, "i"))	||
-								building.postal.match(new RegExp(searchBuilding, "i"))
+								building.state.match(new RegExp(searchBuilding, "i")) 							
+								// 	||
+								// building.postal.match(new RegExp(searchBuilding, "i"))
 							)
 
-							.map(({_id, name, address})=>
+							.map(({id, name, address})=>
 								<ItemAddress
-									key={_id}
-									buildingId={_id}
+									key={id}
+									buildingId={id}
 									nameBuilding={name}
 									addressBuilding={address}		
 									setSearchBuilding={setSearchBuilding}

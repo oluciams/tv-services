@@ -17,7 +17,7 @@ export const ItemAddress = ({
 
 	const selectedAddress = () => {	
 		setSearchBuilding(addressBuilding)
-		setIsActive(false)
+		setIsActive(false)	
 		dispatch(selectBuilding({buildingId}))
 	
 	}
@@ -25,6 +25,7 @@ export const ItemAddress = ({
 		setSearchBuilding('')
 		setIsActive(true)
 	}
+
 	
 	return (
 		<>

@@ -33,7 +33,7 @@ export const Card = ({ id, label, price, plan, onInputChange }) => {
 Card.propTypes = {
 	id: PropTypes.number,	
   label: PropTypes.string,	
-  price: PropTypes.string,
+  price: PropTypes.number,
   plan: PropTypes.string,
   onInputChange: PropTypes.func,	
 };

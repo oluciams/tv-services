@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementPage } from '../../store/slices/signup/signupSlice';
+import { formUserPlan, incrementPage } from '../../store/slices/signup/signupSlice';
 import { Button } from '../Button';
-import { buildings } from '../../dataBuildings';
 import { useForm } from '../../hooks/useForm';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '../Card';
-import { setNumberPlan } from '../../store/thunks/thunks';
+
+import axios from 'axios';
 
 
 export const SelectPlan = () => {	
@@ -16,15 +16,23 @@ export const SelectPlan = () => {
 	const page = useSelector(state => state.signup.page);
 	const id = useSelector(state => state.signup.buildingId);
 
-	const plansId = buildings.filter(building => building._id === id)[0]
-  const plansIdBuilding = plansId.plans
+	const [plansIdBuilding, setPlansIdBuilding] = useState();
+
+	const getPlans = async () => {
+		const { data } = await axios.get(`http://localhost:3000/buildings/${id}/plans`)
+		setPlansIdBuilding(data)
+	}
 
 	useEffect(() => {
-		if(plan){
-			dispatch(setNumberPlan({plan}));
-		}
-		
-	}, [plan]);	
+		getPlans()
+	}, []);	
+
+	useEffect(() => {
+		dispatch(formUserPlan({planId: plan}))
+	}, [plan]);
+	
+
+	if(!plansIdBuilding) return <h4>Loading . . . </h4>
 		
 	return (
 		<>
